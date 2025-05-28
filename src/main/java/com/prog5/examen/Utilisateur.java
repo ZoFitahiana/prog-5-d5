@@ -11,11 +11,12 @@ public class Utilisateur {
 
     public boolean payer(Paiement paiement, double montant) {
         if (solde >= montant) {
-            System.out.println(nom + " paie " + montant + "AR");
+            double reste = getSolde()- montant;
+            System.out.println(nom + " paie " + montant + "AR" + ", nouveaux solde" + reste + "AR");
             solde -= montant;
             return paiement.validerPaiement(montant);
         } else {
-            System.out.println(nom + " n'a pas assez de solde pour payer " + montant + " euros.");
+            System.out.println(nom + " n'a pas assez de solde pour payer " + montant + " AR");
             return false;
         }
     }
